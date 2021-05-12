@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)https://www.joinquant.com/algorithm/index/edit?algorithmId=58eefc01760e950245af6ef07008c24a&backtest=0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>【新消息】我的策略-Clone-Clone</title>
+        <meta name="keywords" content="joinquant,聚宽,量化,宽客,quant,量化交易,量化平台,量化投资,量化策略,程序化交易,量化交易平台,python,金融工程,level2,level1">
+        <meta name="description" content="聚宽（JoinQuant）量化交易平台是为量化爱好者（宽客）量身打造的云平台，我们为您提供精准的回测功能、高速实盘交易接口、易用的API文档、由易入难的策略库，便于您快速实现、使用自己的量化交易策略。">
+        <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="vipType" content="">
+        <meta name="tick-access" content="0">
+	            <link type="text/css" href="/static/css/lib.min.css" rel="stylesheet">
+        <link type="text/css" href="/static/css/common.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/jq-common.min.css">
+                <link rel="stylesheet" href="/static/css/newUserTip.css">
+        <link rel="stylesheet" href="/static/css/index.component.bundle.css">
+	      <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
+
+        <link rel="stylesheet" type="text/css" href="/static/css/index.component.bundle(1).css">
+        <link rel="stylesheet" type="text/css" href="/static/css/unreadMsg.css">
+        <link type="text/css" href="/static/css/iconfont.css" rel="stylesheet">
+
+        
+<link href="/static/css/jquery-ui-jq.min.css" rel="stylesheet">
+<link href="/static/css/algorithm.min.css" rel="stylesheet">
+<link href="/static/css/algorithm.min(1).css" rel="stylesheet">
+<link href="/static/css/newBootstrapDialog.min.css" rel="stylesheet">
+<style>
+	.introjs-helperNumberLayer{-webkit-box-sizing:initial;-moz-box-sizing:initial;box-sizing:initial;}
+	.ace_print-margin{ visibility: hidden !important; }
+	.modal_left{
+		width:20%;
+		text-align: right;
+		letter-spacing: 1px;
+	}
+	.modal_cen{
+		padding:0 10px;
+	}
+
+	#myModal>.modal-dialog{
+		width:800px;
+
+	}
+	code{
+		color:#000;
+		font-weight: bold;
+	}
+	.modal-body li{
+		margin-bottom: 3px;
+	}
+	.modal-title#myModalLabel{
+		font-weight: bold;
+	}
+	#output-pane .dailybars-output .dailybars-controls .control-group .controls .datepicker{
+		width:78px;
+	}
+	.subnav .state-triangle.border{
+		right:213px;
+	}
+	.subnav .state-triangle{
+		right:215px;
+	}
+	button.ace_replacebtn{
+		color:#222;
+		padding:4px;
+	}
+	.btn-link:focus, .btn-link:hover{
+		text-decoration: none;
+	}
+	.dropdown-menu.pull-right {
+		right:-73px;
+		left:auto
+	}
+	.ace-monokai{
+		background-color: #141414!important;
+	}
+	.ace-monokai .ace_gutter{
+		background-color: #232323!important;
+		color:#E2E2E2!important;
+	}
+	.ace-monokai.ace_editor.ace_autocomplete{
+		background: #fbfbfb!important;
+	}
+</style>
+
+<style>
+    .kk_body{
+        padding-bottom:0px;
+    }
+</style>
+
+                                                                        <style>
+        span.new{
+        background: rgba(0,0,0,0);
+    }
+    .side-bar .top .name.user-alias img{
+        width:16px;
+        height:16px;
+        float: none;
+        margin-right:0;
+    }
+    .kk_footer .wp20.last img{
+        position: relative;
+        top:-2px;
+    }
+    .kk_footer .wp20.last .item>a{
+        position: relative;
+        left:-5px;
+    }
+    </style>
+    <script type="text/javascript" async="" src="/static/js/h.js.下载"></script><script type="text/javascript" async="" src="/static/js/vds.js.下载"></script><script type="text/javascript">
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+                            _vds.push(['setAccountId', '949f6a566feb9b09']);
+                                        _vds.push(['trackBot', false]);
+         (function() {
+           // if (window.location.href.indexOf('www.joinquant.com') > -1) {
+             var vds = document.createElement('script');
+             vds.type='text/javascript';
+             vds.async = true;
+             vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(vds, s);
+           // }
+         })();
+        })();
+        var g_domain = 'https://www.joinquant.com';
+        var g_filedomain = 'https://file.joinquant.com';
+
+        </script>
+    <style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;direction: ltr;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);}.ace_editor.ace_autocomplete .ace_line-hover {    position: absolute;    z-index: 2;}.ace_editor.ace_autocomplete .ace_scroller {   background: none;   border: none;   box-shadow: none;}.ace_rightAlignedText {    color: gray;    display: inline-block;    position: absolute;    right: 4px;    text-align: right;    z-index: -1;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #000;    text-shadow: 0 0 0.01em;}.ace_editor.ace_autocomplete {    width: 550px;    z-index: 200000;    background: #fbfbfb;    color: #444;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;}</style><style id="ace_searchbox">.ace_search {background-color: #ddd;border: 1px solid #cbcbcb;border-top: 0 none;max-width: 325px;overflow: hidden;margin: 0;padding: 4px;padding-right: 6px;padding-bottom: 0;position: absolute;top: 0px;z-index: 99;white-space: normal;}.ace_search.left {border-left: 0 none;border-radius: 0px 0px 5px 0px;left: 0;}.ace_search.right {border-radius: 0px 0px 0px 5px;border-right: 0 none;right: 0;}.ace_search_form, .ace_replace_form {border-radius: 3px;border: 1px solid #cbcbcb;float: left;margin-bottom: 4px;overflow: hidden;}.ace_search_form.ace_nomatch {outline: 1px solid red;}.ace_search_field {background-color: white;border-right: 1px solid #cbcbcb;border: 0 none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;float: left;height: 22px;outline: 0;padding: 0 7px;width: 214px;margin: 0;}.ace_searchbtn,.ace_replacebtn {background: #fff;border: 0 none;border-left: 1px solid #dcdcdc;cursor: pointer;float: left;height: 22px;margin: 0;padding: 0;position: relative;}.ace_searchbtn:last-child,.ace_replacebtn:last-child {border-top-right-radius: 3px;border-bottom-right-radius: 3px;}.ace_searchbtn:disabled {background: none;cursor: default;}.ace_searchbtn {background-position: 50% 50%;background-repeat: no-repeat;width: 27px;}.ace_searchbtn.prev {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADFJREFUeNpiSU1NZUAC/6E0I0yACYskCpsJiySKIiY0SUZk40FyTEgCjGgKwTRAgAEAQJUIPCE+qfkAAAAASUVORK5CYII=);    }.ace_searchbtn.next {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADRJREFUeNpiTE1NZQCC/0DMyIAKwGJMUAYDEo3M/s+EpvM/mkKwCQxYjIeLMaELoLMBAgwAU7UJObTKsvAAAAAASUVORK5CYII=);    }.ace_searchbtn_close {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABRVo5BAAAAZ0lEQVR42u2SUQrAMAhDvazn8OjZBilCkYVVxiis8H4CT0VrAJb4WHT3C5xU2a2IQZXJjiQIRMdkEoJ5Q2yMqpfDIo+XY4k6h+YXOyKqTIj5REaxloNAd0xiKmAtsTHqW8sR2W5f7gCu5nWFUpVjZwAAAABJRU5ErkJggg==) no-repeat 50% 0;border-radius: 50%;border: 0 none;color: #656565;cursor: pointer;float: right;font: 16px/16px Arial;height: 14px;margin: 5px 1px 9px 5px;padding: 0;text-align: center;width: 14px;}.ace_searchbtn_close:hover {background-color: #656565;background-position: 50% 100%;color: white;}.ace_replacebtn.prev {width: 54px}.ace_replacebtn.next {width: 27px}.ace_button {margin-left: 2px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-o-user-select: none;-ms-user-select: none;user-select: none;overflow: hidden;opacity: 0.7;border: 1px solid rgba(100,100,100,0.23);padding: 1px;-moz-box-sizing: border-box;box-sizing:    border-box;color: black;}.ace_button:hover {background-color: #eee;opacity:1;}.ace_button:active {background-color: #ddd;}.ace_button.checked {border-color: #3399ff;opacity:1;}.ace_search_options{margin-bottom: 3px;text-align: right;-webkit-user-select: none;-moz-user-select: none;-o-user-select: none;-ms-user-select: none;user-select: none;}
+/*# sourceURL=ace/css/ace_searchbox */</style><style id="ace-twilight">.ace-twilight .ace_gutter {background: #232323;color: #E2E2E2}.ace-twilight .ace_print-margin {width: 1px;background: #232323}.ace-twilight {background-color: #141414;color: #F8F8F8}.ace-twilight .ace_cursor {color: #A7A7A7}.ace-twilight .ace_marker-layer .ace_selection {background: rgba(221, 240, 255, 0.20)}.ace-twilight.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #141414;}.ace-twilight .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-twilight .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgba(255, 255, 255, 0.25)}.ace-twilight .ace_marker-layer .ace_active-line {background: rgba(255, 255, 255, 0.031)}.ace-twilight .ace_gutter-active-line {background-color: rgba(255, 255, 255, 0.031)}.ace-twilight .ace_marker-layer .ace_selected-word {border: 1px solid rgba(221, 240, 255, 0.20)}.ace-twilight .ace_invisible {color: rgba(255, 255, 255, 0.25)}.ace-twilight .ace_keyword,.ace-twilight .ace_meta {color: #CDA869}.ace-twilight .ace_constant,.ace-twilight .ace_constant.ace_character,.ace-twilight .ace_constant.ace_character.ace_escape,.ace-twilight .ace_constant.ace_other,.ace-twilight .ace_heading,.ace-twilight .ace_markup.ace_heading,.ace-twilight .ace_support.ace_constant {color: #CF6A4C}.ace-twilight .ace_invalid.ace_illegal {color: #F8F8F8;background-color: rgba(86, 45, 86, 0.75)}.ace-twilight .ace_invalid.ace_deprecated {text-decoration: underline;font-style: italic;color: #D2A8A1}.ace-twilight .ace_support {color: #9B859D}.ace-twilight .ace_fold {background-color: #AC885B;border-color: #F8F8F8}.ace-twilight .ace_support.ace_function {color: #DAD085}.ace-twilight .ace_list,.ace-twilight .ace_markup.ace_list,.ace-twilight .ace_storage {color: #F9EE98}.ace-twilight .ace_entity.ace_name.ace_function,.ace-twilight .ace_meta.ace_tag,.ace-twilight .ace_variable {color: #AC885B}.ace-twilight .ace_string {color: #8F9D6A}.ace-twilight .ace_string.ace_regexp {color: #E9C062}.ace-twilight .ace_comment {font-style: italic;color: #5F5A60}.ace-twilight .ace_variable {color: #7587A6}.ace-twilight .ace_xml-pe {color: #494949}.ace-twilight .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWMQERFpYLC1tf0PAAgOAnPnhxyiAAAAAElFTkSuQmCC) right repeat-y}
+/*# sourceURL=ace/css/ace-twilight */</style><style id="ace-monokai">.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}
+/*# sourceURL=ace/css/ace-monokai */</style><style type="text/css">#YSF-BTN-HOLDER{position: fixed;max-width:30px;max-height:120px;right: 30px; bottom: 24px; cursor: pointer; overflow: visible; filter: alpha(opacity=100);opacity:1;z-index: 9990} #YSF-BTN-HOLDER:hover{filter: alpha(opacity=95);opacity:.95} #YSF-BTN-HOLDER img{ display: block;overflow: hidden; } #YSF-BTN-CIRCLE{display: none;position: absolute;right: -5px;top: -6px;width: auto;min-width: 12px;height: 20px;padding: 0 4px;background-color: #f00;font-size: 12px;line-height: 20px;color: #fff;text-align: center;white-space: nowrap;font-family: sans-serif;border-radius: 10px;z-index:1;} #YSF-BTN-BUBBLE{display: none;position: absolute;left: -274px;bottom:-15px;width: 278px;height: 80px;box-sizing: border-box;padding: 14px 22px;filter: alpha(opacity=100);opacity:1;background: url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg2x.png) no-repeat;background:url(https://qiyukf.com/sdk//res/img/sdk/bg_floatMsg.png)9; background-size: 278px 80px; z-index: 1;} #YSF-BTN-HOLDER.layer-6{bottom:0;} #YSF-BTN-HOLDER.layer-1 #YSF-BTN-BUBBLE{top:0} #YSF-BTN-HOLDER.layer-6 #YSF-BTN-BUBBLE{bottom:-6px;} #YSF-BTN-BUBBLE:hover{filter: alpha(opacity=95);opacity:.95} #YSF-BTN-CONTENT{height:45px;padding: 0;white-space: normal;word-break: break-all;text-align: left;font-size: 14px;line-height: 1.6;color: #222;overflow: hidden;z-index: 0;} #YSF-BTN-ARROW{ display: none; } #YSF-BTN-CLOSE{position: absolute; width:15px; height:15px;right: 4px;top: -3px; filter: alpha(opacity=90); opacity:.9; cursor: pointer; background: url(https://qiyukf.com/sdk//res/img/sdk/btn-close.png) no-repeat;z-index: 1} #YSF-BTN-CLOSE:hover{filter: alpha(opacity=100); opacity: 1;} #YSF-PANEL-CORPINFO.ysf-chat-layeropen{ width: 511px; height: 500px; border-radius: 8px; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15);} #YSF-PANEL-CORPINFO{ position: fixed; bottom: 0px; right: 20px; width: 0; height: 0; z-index: 99999; } #YSF-PANEL-INFO.ysf-chat-layeropen{ width: 360px; height: 500px; border-radius: 8px; filter: alpha(opacity=100);opacity:1; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15);} #YSF-PANEL-INFO{ position: fixed; bottom: 0px; right: 20px; width: 0px; height: 0px; filter: alpha(opacity=0);opacity:0;z-index: 99999;} #YSF-PANEL-INFO .u-btn{background-color: #337eff} #YSF-CUSTOM-ENTRY{background-color: #F96868;} #YSF-CUSTOM-ENTRY-0{position: relative;width:auto;background-color: #337eff;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-1{position: relative;width:auto;background-color: #337eff;border-radius: 14px; box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-2{position: relative;width:auto;background-color: #337eff;border-radius: 8px;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-3{position: relative;width:auto;background-color: #337eff;border-radius: 50%;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-4{position: relative;width:auto;background-color: #337eff;border-radius: 50%;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-5{position: relative;width:auto;background-color: #337eff;border-radius: 8px;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-6{position: relative;width:auto;background-color: #337eff;border-radius: 8px;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-7{position: relative;width:auto;background-color: #337eff;border-radius: 50%;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-8{position: relative;width:auto;background-color: #337eff;border-radius: 8px;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);} #YSF-CUSTOM-ENTRY-0 img{max-width: 300px;max-height: 300px;} #YSF-CUSTOM-ENTRY-1 img{width:28px;height:auto;} #YSF-CUSTOM-ENTRY-2 img{width:58px;height:auto;} #YSF-CUSTOM-ENTRY-3 img{width:60px;height:auto;} #YSF-CUSTOM-ENTRY-4 img{width:60px;height:auto;} #YSF-CUSTOM-ENTRY-5 img{width:60px;height:auto;} #YSF-CUSTOM-ENTRY-6 img{width:58px;height:auto;} #YSF-CUSTOM-ENTRY-7 img{width:60px;height:auto;} #YSF-CUSTOM-ENTRY-8 img{width:60px;height:auto;} #YSF-IFRAME-LAYER{ border:0; outline:none; } .ysf-online-invite-wrap{z-index:10001;position:fixed;_position:absolute;top:50%;left:50%;} .ysf-online-invite{position:relative;top:-50%;left:-50%;cursor:pointer;border-radius: 16px;box-shadow: 0 10px 30px 0 rgba(47,56,111,0.15);} .ysf-online-invite img{display:block;width:250px;} .ysf-online-invite .ysf-online-invite-img{width:100%;height:100%} .ysf-online-invite .text{position:absolute;top:-11px;left:0;right:0;overflow:hidden;margin: 36px 20px 0 67px;line-height:140%;color:#526069;font-size:14px;font-family:"Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";text-align:left;white-space:normal;word-wrap:break-word;} .ysf-online-invite .close{position:absolute;top:12px;right:12px;width:16px;height:16px;background:url("https://ysf.nosdn.127.net/operation/4602027f7e6a0109ac433863d7d0acdf") no-repeat;cursor:pointer;background-size: cover;} #YSF-PANEL-MOBILE{ background: rgba(46,47,49,0.7); position: fixed; bottom: 0px; right: 0px; width: 100%; height: 0px; transition-property: height,bottom; transition-duration: 0.3s; transition-timing-function: ease; transition-delay: 0s; z-index: 99999; } #YSF-PANEL-MOBILE.ysf-chat-layeropen{ width: 100%; height: 100%; transition-property:height,bottom; transition-duration: 0.3s; transition-timing-function: ease; transition-delay: 0s; } #YSF-IFRAME-LAYER.ysf-chat-mobile-layeropen{ height: 90% !important; transition-property: height,bottom; transition-duration: 0.3s; transition-timing-function: ease; transition-delay: 0s; } #YSF-IFRAME-LAYER{ position: absolute; bottom: 0px;left: 0; right: 0px; width: 0px; height: 0px; transition-property: height,bottom; transition-duration: 0.3s; transition-timing-function: ease; transition-delay: 0s; z-index: 9999; } .YSF-PANEL-BODY-FIXED{ position: fixed !important; left: 0; right: 0;} .YSF-INVITE-LAYER-WRAPPER { cursor: pointer; position: relative; border: 1px solid #eaf0f6; background: #fff;box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-radius: 4px; width: 220px; padding: 16px; box-sizing: border-box; margin-bottom: 12px; background: #FFFFFF; box-shadow: 0 6px 20px 0 rgba(40,53,75,0.17); border-radius: 8px; } .YSF-INVITE-LAYER-HEADER { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; } .YSF-INVITE-LAYER-HEADER-LEFT { display: flex; flex: 1; align-items: center; } .YSF-INVITE-LAYER-RICHTEXT { height: 44px; max-width: 168px; word-break: break-all; overflow: hidden; text-overflow: ellipsis; font-size: 14px; color: #333333; line-height: 22px; text-align: left; } .YSF-INVITE-LAYER-RICHTEXT p { margin: 0 } #YSF-BTN-HOLDER .YSF-INVITE-LAYER-AVATAR { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; } .YSF-INVITE-LAYER-KEFU-NAME { font-size: 12px; color: #999999; margin-left: 4px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; } #YSF-ONLINE-INVITE-LAYER-CLOSE{ width:12px; height:12px; background:url("https://ysf.nosdn.127.net/operation/0e5ee37a71d33e05b74d1a5aa3cdd99a") no-repeat; background-size: cover; cursor:pointer; } #YSF-INVITE-LAYER-WRAPPER-ENTRY { position: relative; float: right; } .YSF-LAYER-ENTRY-CIRCLE { width: auto; min-width: 12px; height: 20px; padding: 0 4px; border-radius: 10px; color: #FFFFFF; background-color: #f00; font-size: 12px; line-height: 20px; white-space: nowrap; z-index:1; background: url("https://ysf.nosdn.127.net/operation/997228b687d805f7a5d6244865615ec9") no-repeat; background-size: cover; position: absolute; top: 6px; right: -8px; } .YSF-INVITE-IMG {background-color: #337eff;box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);float: right;} .YSF_INVITE-IMG-0{max-width: 300px; height:auto;} .YSF_INVITE-IMG-1{width:28px; height:auto; border-radius: 14px;} .YSF_INVITE-IMG-2{width:58px; height:auto; border-radius: 8px;} .YSF_INVITE-IMG-3{width:60px; height:auto; border-radius: 50%;} .YSF_INVITE-IMG-4{width:60px; height:auto; border-radius: 50%;} .YSF_INVITE-IMG-5{width:60px; height:auto; border-radius: 8px;} .YSF_INVITE-IMG-6{width:58px; height:auto; border-radius: 8px;} .YSF_INVITE-IMG-7{width:60px; height:auto; border-radius: 50%;} .YSF_INVITE-IMG-8{width:60px; height:auto; border-radius: 8px;} #YSF-BTN-HOLDER .portrait_icon{width: 24px;height: 24px;vertical-align: middle;display: inline-block;}</style></head>
+    <body>
+                                <div class="kk_main in_wrap">
+                        
+            <header id="kk_nav" class="fixed-top kk_nav navbar narbar-static-top heigh_nav">
+              <div class="kk_nav_container js-jq-header"><div class="navbar-header clear" style="position: relative;z-index:1;">  <a href="https://www.joinquant.com/" title="joinQuant" class="navbar-brand  fleft headerLogBg"></a> </div><nav id="kk_navbar" class="kk_navbar collapse navbar-collapse relative" aria-expanded="false"><ul class="nav navbar-nav"> <li> <a href="https://www.joinquant.com/" class="">  首页  </a>     </li> <li> <a href="javascript:void(0)" class="">  策略研究  </a>   <div class="submenu">  <a href="https://www.joinquant.com/research" class="item">研究环境  </a>  <a href="https://www.joinquant.com/algorithm/index/list" class="item">策略列表  </a>  <a href="https://www.joinquant.com/algorithm/trade/list?process=1" class="item">模拟列表  </a>  <a href="https://www.joinquant.com/help/api/help?name=faq#%E6%8E%A5%E5%85%A5%E5%AE%9E%E7%9B%98" class="item">实盘说明  </a>  <a href="https://www.joinquant.com/view/factorlib/list" class="item">因子看板  </a>  <a href="https://www.joinquant.com/algorithm/apishare/list" class="item">共享函数库  </a>  <a href="https://www.joinquant.com/help/api/help?name=api" class="item">API文档  </a> </div>   </li> <li> <a href="https://www.joinquant.com/data" class="">  数据字典  </a>     </li> <li> <a href="https://www.joinquant.com/algorithm/live/FundraisingFeature" class="">  聚宽投资  </a>     </li> <li> <a href="https://www.joinquant.com/community/new" class="">  社区  </a>     </li> <li> <a href="javascript:void(0)" class="">  帮助  </a>   <div class="submenu">  <a href="https://www.joinquant.com/post/4589" class="item">新手指引  </a>  <a href="https://www.joinquant.com/faq" class="item">常见问题  </a>  <a href="https://www.joinquant.com/help/api/help?name=api" class="item">API文档  </a>  <a href="https://www.joinquant.com/help/api/help?name=factor" class="item">因子分析  </a>  <a href="https://www.joinquant.com/view/algorithm/pythonConversion?utm_source=Nav" class="item">Python 2 to 3  </a>  <a href="https://www.joinquant.com/study" class="item">量化学习  </a> </div>   </li> <li> <a href="javascript:void(0)" class="">  本地数据  </a>   <div class="submenu">  <a href="https://www.joinquant.com/default/index/sdk?utm_campaign=JQData%E7%94%B3%E8%AF%B7&amp;utm_medium=%E7%BD%91%E9%A1%B5&amp;utm_source=%E8%81%9A%E5%AE%BD&amp;gio_link_id=xRxqAjP5" class="item">申请使用  </a>  <a href="https://www.joinquant.com/help/api/help?name=JQData" class="item">Python版API  </a>  <a href="https://www.joinquant.com/help/api/help?name=JQDataHttp" class="item">其他编程语言API  </a> </div>   </li> <li> <a href="https://www.joinquant.com/view/vip/charge" class="">  聚宽会员  </a>     </li> <li> <a href="https://www.joinquant.com/view/user/floor?type=mainFloor" class="">  <div class="jq-site-user-avatar jq-user-headImgKey" style="width: 30px; height: 30px;"> <img src="/static/imags/default_header-2.png"> </div> </a> <span class="message-badge-nav">33</span>  <div class="nav-user-header-dropdown-menu-wrap"><div class="nav-user-header-dropdown-menu"><span class="dropdown-menu-arrows"></span><div class="nav-user-header-info"><div class="nav-user-header-img"> <img src="/static/imags/default_header-2.png"></div><div class="nav-user-header-name"><h3>牛哥1</h3>  <p> <span>暂未开通聚宽VIP</span> <a href="https://www.joinquant.com/view/vip/recharge" target="_blank">立即开通</a></p> </div></div><div class="nav-user-header-link"> <p class="header-unread-tag" data-unread=""> <a href="https://www.joinquant.com/user/msg/list">消息</a>  <span class="header-unread-number">33</span> </p> <p class="header-unread-tag" data-unread="true"> <a href="https://www.joinquant.com/view/user/floor?type=creditsdesc">积分中心</a> </p> <p class="header-unread-tag" data-unread="true"> <a href="https://www.joinquant.com/view/user/floor?type=setting">账号设置</a> </p> <p class="header-unread-tag" data-unread=""> <a href="https://www.joinquant.com/user/login/logout">退出</a> </p> </div></div></div> </li> <div class="hidden" id="userInfoForCs" _userid="" _alias="牛哥1" _mob="">牛哥1</div></ul></nav></div>
+            </header>
+            
+            <!--/header-->
+
+            <!-- <div class="kk_body  js-jq-body hidden top_50  "> -->
+            <div class="kk_body js-jq-body top_50">
+                <div class="content content-area old-style padding_b0">
+    <input type="hidden" id="algorithm-edit_tick-access" value="0">
+  <form name="AlgorithmModel">
+      <input type="hidden" id="backtestId" value="845cba039653111800f9467bc020f656">
+      <input type="hidden" id="algorithmId" name="algorithm[algorithmId]" value="19dafde3817395bcaf7d20caa5b6493d" algorithmid_="a89b174abe982bf801cf14fec294c540">
+      <input type="hidden" name="algorithm[userId]" value="b12971ac46565b0ee6538d072efed8bf">
+      <input type="hidden" id="accessControl" name="algorithm[accessControl]" value="0">
+      <input type="hidden" id="type" name="backtest[type]" value="1">
+      <input type="hidden" id="pyVersionFlag" value="true">
+      <div id="subnav" class="subnav">
+          <a href="https://www.joinquant.com/algorithm/index/list" class="algo-back" id="algo-back" title="返回策略列表">
+              <i class="icon icon-chevron-left no-decoration"></i>
+          </a>
+          <h2 class="algo-title" title="点击修改策略名称" style="max-width:calc(100% - 410px);">我的策略-Clone-Clone</h2>
+          <input class="algo-title-box medium hidden" id="title-box" name="algorithm[name]" size="30" value="我的策略-Clone-Clone" type="text" style="margin-left:4px;padding:0 10px;top:5px">
+          <div class="pull-right mode-buttons">
+            <span class="run-time-info-icon" data-original-title="" title="" data-over="0"></span>
+            <div class="run-time-popover-html"><p>今日已运行时长：0分钟</p><p>免费可用时长：60分钟</p><p>超出部分，每30分钟需消耗2积分</p><p><a href="https://www.joinquant.com/view/vip/charge" target="_blank">点击延长免费回测时间</a></p></div>
+              <div class="mode-container head-con">
+                  <div class="group-btn inline-block">
+                      <div class="btn-group inline-block toggle-buttons" id="algo-toggle-buttons">
+                          <a class=" active no-decoration btn-item" href="https://www.joinquant.com/algorithm/index/edit?algorithmId=58eefc01760e950245af6ef07008c24a&amp;backtest=0#algorithm" id="algo-button">
+                              编辑策略
+                          </a>
+                          <a class="no-decoration btn-item" href="https://www.joinquant.com/algorithm/backtest/detail?backtestId=845cba039653111800f9467bc020f656" id="algo-backtest">
+                              回测详情
+                          </a>
+                          <span class="line_bg"></span>
+                          <a class=" no-decoration btn-item " href="javascript:void(0);" id="edit-button">
+                              编译运行列表
+                          </a>
+                          <a class="  no-decoration btn-item " href="javascript:void(0);" id="backtest-button">
+                              回测列表
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="main-pane" class="main-pane">
+          <div id="algo-area" class="algorithm-area">
+              <div id="ide-box" class="box ide" style="width: auto; height: 565.991px;">
+
+                  <div id="splitter-outer-container">
+                      <div id="splitter-container" class="splitter ui-widget ui-widget-content" data-splitter-initialized="true">
+                          <div id="code-area" style="height: 564.995px; position: absolute; left: 0px; width: 46%; border-right: 1px solid rgb(232, 236, 240); min-width: 400px;" class="splitter-pane ui-resizable ui-resizable-autohide">
+                              <!-- toolbar start -->
+                              <div class="toolbar" id="toolbar">
+                                  <div class="toolbar-inner">
+                                      <div class="left inline-block" style="margin-left:11px;">
+                                          <div id="algo-save-button" style="width:80px;height:32px;line-height: 22px; background: #fff;box-shadow:none;border: 1px solid #d9dcdf;border-radius:1px;" class="btn" disabled="disabled">
+                                          <span class="button-label">
+                                              <span class="active-text hidden" id="save-span" title="保存策略(Ctrl+S)">
+                                                  <span class="underlined_char">保  存</span>
+                                              </span>
+                                              <span class="busy-text" id="save-busy-text" style="display: none;">保存中</span>
+                                              <span class="done-text" id="save-done-text" style="display: block;">已保存</span>
+                                          </span>
+                                          </div>
+                                          <div id="validate-button" style="width:80px;height:32px;line-height: 22px; background: #fff;border: 1px solid #d9dcdf;border-radius:1px;box-shadow:none;margin-left: 4px; " class="btn" data-original-title="" title="" data-step="3" data-intro="点击“编译运行”进行快速回测" data-position="right">
+
+                                          <span class="button-label">
+                                              <span class="active-text" id="buildBtn" title="编译运行(Ctrl+Alt+B)">
+                                                  <span>编译运行</span>
+                                              </span>
+                                              <span class="busy-text hidden build-loading" id="building">编译中...</span>
+                                          </span>
+                                          </div>
+                                                                                    <div class="btn-group inline-block">
+                                              <a target="_blank" href="https://www.joinquant.com/algorithm/apishare/list?f=cledit" style="width:80px;height:32px;line-height: 22px; background: #fff;box-shadow:none;border: 1px solid #d9dcdf;border-radius:1px;margin-left: 3px;" class="btn">
+                                                  函数库
+                                              </a>
+                                          </div>
+                                                                                                                              <!-- <div class="">
+                                              <img class="loading">
+                                          </div> -->
+
+                                      </div>
+                                      <div class="right inline-block pull-right" id="right">
+
+                                          <!-- 切换是否启用股票提示 -->
+                                          <!-- <div class="checkbox" >
+                                              <label>
+                                                  <span class="check_label" >
+                                                      <input type="checkbox" name="transaction-select" ／>
+                                                  </span>股票代码提示
+                                              </label>
+                                          </div> -->
+                                          <button class="algorithm-edit-white-btn" id="algorithmCloneBtn" type="button" style="color: #72787d; font-weight: bolder; font-size: 13px;">克隆</button>
+                                                                                    <div class="btn-group inline-block">
+                                              <a target="_blank" class="to-python-conversion" href="https://www.joinquant.com/view/algorithm/pythonConversion?utm_source=editor"></a>
+                                          </div>  
+                                                                                    <div class="btn-group inline-block" id="div-api">
+                                              <a target="_blank" href="https://www.joinquant.com/api" class="btn" id="api">
+                                                  <img src="/static/imags/api.png">
+                                              </a>
+                                          </div>
+                                          <div class="inline-block" style="position:relative;right: -15px; width: 32px;height: 32px;background: #fff;border: 1px solid #d9dcdf;z-index: 2">
+                                              <a href="javascript:void(0)" id="searchBtn" title="查找">
+                                                  <img src="/static/imags/sousuo.png">
+                                              </a>
+                                          </div>
+                                          <div id="ide-options" class="btn-group inline-block relative" style="z-index: 2;border-left:none">
+                                              <input type="hidden" value="default" name="fontpref" id="font-pref-field">
+                                              <input type="hidden" value="ambiance" name="themepref" id="theme-pref-field">
+                                              <a id="prefs-menu-trigger" href="https://www.joinquant.com/algorithm/index/edit?algorithmId=58eefc01760e950245af6ef07008c24a&amp;backtest=0#" data-toggle="dropdown" class="btn dropdown-toggle dropdown-checked">
+                                                  <img class="api-img1" src="/static/imags/shezhi.png">
+                                                  <img class="api-img2" src="/static/imags/xiala.png">
+                                              </a>
+                                              <ul class="dropdown-menu prefs-menu pull-right">
+                                                  <div id="fontsize-pref" class="check-group">
+                                                      <li data-fontsize="small" class="wide-left">
+                                                          <a id="small-text-link" class="fontsize-pref-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              小号字体
+                                                          </a>
+                                                      </li>
+                                                      <li data-fontsize="default" class="wide-left checked">
+                                                          <a id="normal-text-link" class="font-size-pref-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              中号字体
+                                                          </a>
+                                                      </li>
+                                                      <li data-fontsize="large" class="wide-left">
+                                                          <a id="large-text-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              大号字体
+                                                          </a>
+                                                      </li>
+                                                  </div>
+                                                  <li class="divider"></li>
+                                                  <div id="theme-pref" class="check-group">
+                                                      <li data-theme="default" class="wide-left">
+                                                          <a id="light-theme-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              浅色背景
+                                                          </a>
+                                                      </li>
+
+                                                      <li data-theme="ambianceA" class="wide-left">
+                                                          <a id="dark-theme-linkA">
+                                                              <i class="icon icon-ok"></i>
+                                                              深色背景A
+                                                          </a>
+                                                      </li>
+                                                      <li data-theme="ambianceB" class="wide-left checked">
+                                                          <a id="dark-theme-linkB">
+                                                              <i class="icon icon-ok"></i>
+                                                              深色背景B
+                                                          </a>
+                                                      </li>
+                                                  </div>
+                                                  <li class="divider"></li>
+                                                  <div id="keybind-pref" class="check-group">
+                                                      <li data-keybind="default" class="wide-left checked">
+                                                          <a id="default-keybind-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              默认
+                                                          </a>
+                                                      </li>
+                                                      <li data-keybind="vim" class="wide-left">
+                                                          <a id="vim-keybind-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              Vim
+                                                          </a>
+                                                      </li>
+                                                      <li data-keybind="emacs" class="wide-left">
+                                                          <a id="emacs-keybind-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              Emacs
+                                                          </a>
+                                                      </li>
+                                                  </div>
+                                                  <li class="divider"></li>
+                                                  <li class="wide-left nocheck">
+                                                      <a id="fullscreen-menu-link">全屏</a>
+                                                  </li>
+
+                                                  <li class="divider"></li>
+                                                  <div id="toggle-stock" class="check-group">
+                                                      <li class="wide-left checked" style="width: 190px;">
+                                                          <a id="toggle-stockcode-link">
+                                                              <i class="icon icon-ok"></i>
+                                                              股票代码提示[需刷新]
+                                                          </a>
+                                                      </li>
+                                                  </div>
+                                              </ul>
+                                              <a id="fullscreen-button" class="hidden btn btn-primary">
+                                                  退出全屏
+                                              </a>
+                                          </div>
+                                          <!-- <button class="btn" id="keyboard" > -->
+                                          <button type="button" title="快捷键" id="kuaijiejian" class="btn " data-toggle="modal" data-target="#myModal" style="border:none;border: 1px solid #d9dcdf; padding:1px"><img src="/static/imags/kjj.png" alt="" style="width:28px;height:28px">
+                                          </button>
+
+                                          <div class="inline-block" style="width: 32px;height: 32px;">
+                                              <a href="javascript:void(0)">
+                                                  <img id="hide" class="no_show btn dropdown-toggle dropdown-checked flag" src="/static/imags/left1.png">
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- toolbar endt -->
+
+                              <div id="code-area-internal" style="height: 521.995px;">
+                                  <div class="ide-search hidden">
+                                      <div class="input-append">
+                                          <input type="text" placeholder="Search code" id="ide-searchbox">
+                                          <div class="add-on hide-search">
+                                              <i class="icon icon-remove"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <textarea id="code" name="algorithm[code]" value="" class="hidden" style="padding:0px;height:auto">from jqdata import finance
+import datetime
+import pandas
+'''
+问题：
+1.调仓日；
+2.资金配置；  两种方式 
+'''
+
+
+## 初始化函数，设定要操作的股票、基准等等
+def initialize(context):
+    # True为开启动态复权模式，使用真实价格交易
+    set_option('use_real_price', True) 
+    #手续费：卖出时千分之1.3 买入时万三
+    set_order_cost(OrderCost(open_tax=0, close_tax=0.001, \
+                             open_commission=0.0003, close_commission=0.0003,\
+                             close_today_commission=0, min_commission=0), type='stock')
+
+    # 设定指数（上证）
+    g.stockindex = '000001.XSHG' 
+    
+    ## 设定调仓月份
+    g.Transfer_month =(3,6,9,12)
+    
+    ## 按月调用程序,当monthday大于该月的交易日天数，按最后交易日计算
+    run_monthly(trade,monthday=20, time='open')
+    
+    #根据大盘止损
+    #run_daily(dapan_stoploss, time='open') 
+
+## 交易函数
+def trade(context):
+    # 获取当前月份
+    months = context.current_dt.month
+    # 如果当前月为交易月
+    if months in g.Transfer_month:
+        ## 获得Buylist
+        Buylist = check_stocks(context)
+        log.info(Buylist)
+        #把不在新得股票池内的股票平掉
+        if len(context.portfolio.positions) &gt; 0:
+            sell_list = set(context.portfolio.positions.keys()) - set(Buylist)
+            for stock in sell_list:
+                order_target_value(stock, 0)
+                
+        ## 重新分配资金并购买其他股
+        if len(context.portfolio.positions) &lt;len(Buylist):
+            optimized_weight = pd.Series(data=[1.0/len(Buylist)]*len(Buylist),
+                                    index=Buylist)
+            
+            Num =len(Buylist)  - len(context.portfolio.positions)
+            Cash = context.portfolio.cash/Num
+            buy_list = set(Buylist) - set(context.portfolio.positions.keys())
+            for stock in buy_list:
+                order_value(stock,Cash)
+        #方法二   分配资金
+        # 等权重配置
+        #if len(Buylist)&gt;0:
+        #    optimized_weight = pd.Series(data=[1.0/len(Buylist)]*len(Buylist),index=Buylist)
+        #    total_value = context.portfolio.total_value # 获取总资产
+        #    for stock in optimized_weight.keys():
+        #        value = total_value * optimized_weight[stock] # 确定每个标的的权重
+        #        order_target_value(stock, value) # 调整标的至目标权重
+    else:
+        pass
+    
+## 选股函数
+'''
+def check_stocks(context):
+    # 上证成分股列表
+    security = get_index_stocks(g.stockindex)
+    Stocks = get_fundamentals(query(
+            valuation.code,
+            valuation.pb_ratio,
+            balance.total_assets,    #总资产
+            balance.total_liability, #总负债
+        ).filter(
+            valuation.code.in_(security),
+            valuation.pb_ratio &lt; 2, #1.股价与每股净值比低于2
+            ))
+    
+    # 计算股票的负债比例
+    Stocks['Debt_ratio'] = Stocks['total_liability']/Stocks['total_assets']
+    # 获取负债比率的市场均值
+    Davg = mean(Stocks['Debt_ratio'])
+     #3.负债比例低于市场平均值
+    Codes1 = Stocks[Stocks['Debt_ratio'] &lt; Davg].code
+    
+    Stocks2=finance.run_query(query(
+        finance.STK_CAPITAL_CHANGE.code,
+        finance.STK_CAPITAL_CHANGE.share_total,
+        finance.STK_CAPITAL_CHANGE.share_management
+        ).filter(finance.STK_CAPITAL_CHANGE.code.in_(security))
+        )
+            
+     # 计算股票的董监事持股比例
+    Stocks2['manag_ratio'] = Stocks2['share_management']/Stocks2['share_total']
+    # 获取董监事持股比例的市场均值
+    Mavg = mean(Stocks2['manag_ratio'])
+    # 2.董监事持股比例高于市场平均值
+    Codes2 = Stocks2[Stocks2['manag_ratio'] &gt; Mavg].code
+    #获得新的股票池
+    Codes=set(Codes1) &amp; set(Codes2)
+    log.info(Codes2)
+    return list(Codes)
+    '''
+    
+def check_stocks(context):
+    Stocks3=get_all_securities()
+    stocks1=get_industry_stocks('HY010')
+    stocks2=get_concept_stocks('GN197')
+    stocks=set(Stocks3)-set(stocks1)-set(stocks2)
+    Stocks=get_fundamentals(query(
+            valuation.code,#代码
+            valuation.capitalization,#总股本
+            valuation.market_cap,#总市值
+            valuation.ps_ratio, #市销率
+            valuation.pcf_ratio,#市现率
+            balance.dividend_payable,#应付股利
+       ))
+    Davg = 4*mean(Stocks['market_cap'])/3
+    Codes1 = Stocks[Stocks['market_cap'] &gt; Davg].code
+    Davg1=mean(Stocks['pcf_ratio'])
+    Codes2 = Stocks[Stocks['pcf_ratio'] &lt; Davg1].code
+    Codes3 = Stocks[Stocks['pcf_ratio'] &gt; 0].code
+    Davg2=4*mean(Stocks['capitalization'])/3
+    Codes4 = Stocks[Stocks['capitalization'] &gt; Davg2].code
+    Davg4=mean(Stocks['ps_ratio'])
+    Codes5 = Stocks[Stocks['ps_ratio'] &lt; Davg4].code
+    Codes6=set(Codes1) &amp; set(Codes2)&amp; set(Codes3)&amp; set(Codes4)&amp; set(Codes5)
+    '''
+    Stocksind=[]
+    for i in Codes6:
+        Stocks10=Stocks[Stocks.code==i].index.tolist()
+        Stocksind.append(Stocks10)
+    Stocks1=Stocks[[Stocksind]]
+    Stocks1['guxi']=Stocks1['dividend_payable']/Stocks1['capitalization']
+    Stocks_sort=Stocks1.sort(key='guxi',reverse=True)
+    Codes7=Stocks_sort[0:30].code
+    
+    Codes=set(Codes6) &amp; set(Codes7)
+    '''
+    return list(Codes6)
+    
+## 根据局大盘止损，具体用法详见dp_stoploss函数说明
+def dapan_stoploss(context):
+    stoploss = dp_stoploss(kernel=2, n=3, zs=0.1)
+    if stoploss:
+        if len(context.portfolio.positions)&gt;0:
+            for stock in list(context.portfolio.positions.keys()):
+                order_target(stock, 0)
+
+## 大盘止损函数
+def dp_stoploss(kernel=2, n=10, zs=0.03):
+    '''
+    方法1：当大盘N日均线(默认60日)与昨日收盘价构成“死叉”，则发出True信号
+    方法2：当大盘N日内跌幅超过zs，则发出True信号
+    '''
+    # 止损方法1：根据大盘指数N日均线进行止损
+    if kernel == 1:
+        t = n+2
+        hist = attribute_history('000300.XSHG', t, '1d', 'close', df=False)
+        temp1 = sum(hist['close'][1:-1])/float(n)
+        temp2 = sum(hist['close'][0:-2])/float(n)
+        close1 = hist['close'][-1]
+        close2 = hist['close'][-2]
+        if (close2 &gt; temp2) and (close1 &lt; temp1):
+            return True
+        else:
+            return False
+    # 止损方法2：根据大盘指数跌幅进行止损
+    elif kernel == 2:
+        hist1 = attribute_history('000300.XSHG', n, '1d', 'close',df=False)
+        if ((1-float(hist1['close'][-1]/hist1['close'][0])) &gt;= zs):
+            return True
+        else:
+            return False</textarea>
+                                  <div id="ide-container" class="ide-container ace_editor ace_dark font-default ace-monokai" data-step="1" data-intro="使用Python语言编辑策略" data-position="right"><textarea class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; height: 19.2593px; width: 8.43125px; left: 54px; top: 0px;"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 0px; height: 541.519px; width: 50px;"><div class="ace_gutter-cell " style="height: 19.2593px;">1</div><div class="ace_gutter-cell " style="height: 19.2593px;">2</div><div class="ace_gutter-cell " style="height: 19.2593px;">3</div><div class="ace_gutter-cell " style="height: 19.2593px;">4</div><div class="ace_gutter-cell " style="height: 19.2593px;">5</div><div class="ace_gutter-cell " style="height: 19.2593px;">6</div><div class="ace_gutter-cell " style="height: 19.2593px;">7</div><div class="ace_gutter-cell " style="height: 19.2593px;">8</div><div class="ace_gutter-cell " style="height: 19.2593px;">9</div><div class="ace_gutter-cell " style="height: 19.2593px;">10</div><div class="ace_gutter-cell " style="height: 19.2593px;">11</div><div class="ace_gutter-cell " style="height: 19.2593px;">12<span class="ace_fold-widget ace_start ace_open" style="height: 19.2593px;"></span></div><div class="ace_gutter-cell " style="height: 19.2593px;">13</div><div class="ace_gutter-cell " style="height: 19.2593px;">14</div><div class="ace_gutter-cell " style="height: 19.2593px;">15</div><div class="ace_gutter-cell " style="height: 19.2593px;">16</div><div class="ace_gutter-cell " style="height: 19.2593px;">17</div><div class="ace_gutter-cell " style="height: 19.2593px;">18</div><div class="ace_gutter-cell " style="height: 19.2593px;">19</div><div class="ace_gutter-cell " style="height: 19.2593px;">20</div><div class="ace_gutter-cell " style="height: 19.2593px;">21</div><div class="ace_gutter-cell " style="height: 19.2593px;">22</div><div class="ace_gutter-cell " style="height: 19.2593px;">23</div><div class="ace_gutter-cell " style="height: 19.2593px;">24</div><div class="ace_gutter-cell " style="height: 19.2593px;">25</div><div class="ace_gutter-cell " style="height: 19.2593px;">26</div><div class="ace_gutter-cell " style="height: 19.2593px;">27</div><div class="ace_gutter-cell " style="height: 19.2593px;">28</div><div class="ace_gutter-cell " style="height: 19.2593px;">29</div></div><div class="ace_gutter-active-line" style="top: 0px; height: 19.2593px;"></div></div><div class="ace_scroller" style="left: 50px; right: 19px; bottom: 19px;"><div class="ace_content" style="margin-top: 0px; width: 792px; height: 541.519px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 678.5px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"><div class="ace_active-line" style="height:19.259260177612305px;top:0px;left:0;right:0;"></div></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:19.259260177612305px"><span class="ace_keyword">from</span> <span class="ace_identifier">jqdata</span> <span class="ace_keyword">import</span> <span class="ace_identifier">finance</span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_keyword">import</span> <span class="ace_support ace_function">datetime</span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_keyword">import</span> <span class="ace_support ace_function">pandas</span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_string">'''</span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_string"><span class="ace_cjk" style="width:16.862501220703123px">问</span><span class="ace_cjk" style="width:16.862501220703123px">题</span><span class="ace_cjk" style="width:16.862501220703123px">：</span></span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_string">1.<span class="ace_cjk" style="width:16.862501220703123px">调</span><span class="ace_cjk" style="width:16.862501220703123px">仓</span><span class="ace_cjk" style="width:16.862501220703123px">日</span><span class="ace_cjk" style="width:16.862501220703123px">；</span></span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_string">2.<span class="ace_cjk" style="width:16.862501220703123px">资</span><span class="ace_cjk" style="width:16.862501220703123px">金</span><span class="ace_cjk" style="width:16.862501220703123px">配</span><span class="ace_cjk" style="width:16.862501220703123px">置</span><span class="ace_cjk" style="width:16.862501220703123px">；</span>  <span class="ace_cjk" style="width:16.862501220703123px">两</span><span class="ace_cjk" style="width:16.862501220703123px">种</span><span class="ace_cjk" style="width:16.862501220703123px">方</span><span class="ace_cjk" style="width:16.862501220703123px">式</span> </span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_string">'''</span></div><div class="ace_line" style="height:19.259260177612305px"></div><div class="ace_line" style="height:19.259260177612305px"></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_comment">## <span class="ace_cjk" style="width:16.862501220703123px">初</span><span class="ace_cjk" style="width:16.862501220703123px">始</span><span class="ace_cjk" style="width:16.862501220703123px">化</span><span class="ace_cjk" style="width:16.862501220703123px">函</span><span class="ace_cjk" style="width:16.862501220703123px">数</span><span class="ace_cjk" style="width:16.862501220703123px">，</span><span class="ace_cjk" style="width:16.862501220703123px">设</span><span class="ace_cjk" style="width:16.862501220703123px">定</span><span class="ace_cjk" style="width:16.862501220703123px">要</span><span class="ace_cjk" style="width:16.862501220703123px">操</span><span class="ace_cjk" style="width:16.862501220703123px">作</span><span class="ace_cjk" style="width:16.862501220703123px">的</span><span class="ace_cjk" style="width:16.862501220703123px">股</span><span class="ace_cjk" style="width:16.862501220703123px">票</span><span class="ace_cjk" style="width:16.862501220703123px">、</span><span class="ace_cjk" style="width:16.862501220703123px">基</span><span class="ace_cjk" style="width:16.862501220703123px">准</span><span class="ace_cjk" style="width:16.862501220703123px">等</span><span class="ace_cjk" style="width:16.862501220703123px">等</span></span></div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_keyword">def</span> <span class="ace_support ace_function">initialize</span><span class="ace_paren ace_lparen">(</span><span class="ace_support ace_function">context</span><span class="ace_paren ace_rparen">)</span>:</div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_comment"># True<span class="ace_cjk" style="width:16.862501220703123px">为</span><span class="ace_cjk" style="width:16.862501220703123px">开</span><span class="ace_cjk" style="width:16.862501220703123px">启</span><span class="ace_cjk" style="width:16.862501220703123px">动</span><span class="ace_cjk" style="width:16.862501220703123px">态</span><span class="ace_cjk" style="width:16.862501220703123px">复</span><span class="ace_cjk" style="width:16.862501220703123px">权</span><span class="ace_cjk" style="width:16.862501220703123px">模</span><span class="ace_cjk" style="width:16.862501220703123px">式</span><span class="ace_cjk" style="width:16.862501220703123px">，</span><span class="ace_cjk" style="width:16.862501220703123px">使</span><span class="ace_cjk" style="width:16.862501220703123px">用</span><span class="ace_cjk" style="width:16.862501220703123px">真</span><span class="ace_cjk" style="width:16.862501220703123px">实</span><span class="ace_cjk" style="width:16.862501220703123px">价</span><span class="ace_cjk" style="width:16.862501220703123px">格</span><span class="ace_cjk" style="width:16.862501220703123px">交</span><span class="ace_cjk" style="width:16.862501220703123px">易</span></span></div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_support ace_function">set_option</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">'use_real_price'</span>, <span class="ace_constant ace_language">True</span><span class="ace_paren ace_rparen">)</span> </div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_comment">#<span class="ace_cjk" style="width:16.862501220703123px">手</span><span class="ace_cjk" style="width:16.862501220703123px">续</span><span class="ace_cjk" style="width:16.862501220703123px">费</span><span class="ace_cjk" style="width:16.862501220703123px">：</span><span class="ace_cjk" style="width:16.862501220703123px">卖</span><span class="ace_cjk" style="width:16.862501220703123px">出</span><span class="ace_cjk" style="width:16.862501220703123px">时</span><span class="ace_cjk" style="width:16.862501220703123px">千</span><span class="ace_cjk" style="width:16.862501220703123px">分</span><span class="ace_cjk" style="width:16.862501220703123px">之</span>1.3 <span class="ace_cjk" style="width:16.862501220703123px">买</span><span class="ace_cjk" style="width:16.862501220703123px">入</span><span class="ace_cjk" style="width:16.862501220703123px">时</span><span class="ace_cjk" style="width:16.862501220703123px">万</span><span class="ace_cjk" style="width:16.862501220703123px">三</span></span></div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_support ace_function">set_order_cost</span><span class="ace_paren ace_lparen">(</span><span class="ace_support ace_function">OrderCost</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">open_tax</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">0</span>, <span class="ace_identifier">close_tax</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">0.001</span>, \</div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_identifier">open_commission</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">0.0003</span>, <span class="ace_identifier">close_commission</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">0.0003</span>,\</div><div class="ace_line" style="height:19.259260177612305px"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_identifier">close_today_commission</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">0</span>, <span class="ace_identifier">min_commission</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">)</span>, <span class="ace_support ace_function">type</span><span class="ace_keyword ace_operator">=</span><span class="ace_string">'stock'</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:19.259260177612305px"></div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_comment"># <span class="ace_cjk" style="width:16.862501220703123px">设</span><span class="ace_cjk" style="width:16.862501220703123px">定</span><span class="ace_cjk" style="width:16.862501220703123px">指</span><span class="ace_cjk" style="width:16.862501220703123px">数</span><span class="ace_cjk" style="width:16.862501220703123px">（</span><span class="ace_cjk" style="width:16.862501220703123px">上</span><span class="ace_cjk" style="width:16.862501220703123px">证</span><span class="ace_cjk" style="width:16.862501220703123px">）</span></span></div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_identifier">g</span>.<span class="ace_identifier">stockindex</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_string">'000001.XSHG'</span> </div><div class="ace_line" style="height:19.259260177612305px">    </div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_comment">## <span class="ace_cjk" style="width:16.862501220703123px">设</span><span class="ace_cjk" style="width:16.862501220703123px">定</span><span class="ace_cjk" style="width:16.862501220703123px">调</span><span class="ace_cjk" style="width:16.862501220703123px">仓</span><span class="ace_cjk" style="width:16.862501220703123px">月</span><span class="ace_cjk" style="width:16.862501220703123px">份</span></span></div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_identifier">g</span>.<span class="ace_identifier">Transfer_month</span> <span class="ace_keyword ace_operator">=</span><span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">3</span>,<span class="ace_constant ace_numeric">6</span>,<span class="ace_constant ace_numeric">9</span>,<span class="ace_constant ace_numeric">12</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:19.259260177612305px">    </div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_comment">## <span class="ace_cjk" style="width:16.862501220703123px">按</span><span class="ace_cjk" style="width:16.862501220703123px">月</span><span class="ace_cjk" style="width:16.862501220703123px">调</span><span class="ace_cjk" style="width:16.862501220703123px">用</span><span class="ace_cjk" style="width:16.862501220703123px">程</span><span class="ace_cjk" style="width:16.862501220703123px">序</span>,<span class="ace_cjk" style="width:16.862501220703123px">当</span>monthday<span class="ace_cjk" style="width:16.862501220703123px">大</span><span class="ace_cjk" style="width:16.862501220703123px">于</span><span class="ace_cjk" style="width:16.862501220703123px">该</span><span class="ace_cjk" style="width:16.862501220703123px">月</span><span class="ace_cjk" style="width:16.862501220703123px">的</span><span class="ace_cjk" style="width:16.862501220703123px">交</span><span class="ace_cjk" style="width:16.862501220703123px">易</span><span class="ace_cjk" style="width:16.862501220703123px">日</span><span class="ace_cjk" style="width:16.862501220703123px">天</span><span class="ace_cjk" style="width:16.862501220703123px">数</span><span class="ace_cjk" style="width:16.862501220703123px">，</span><span class="ace_cjk" style="width:16.862501220703123px">按</span><span class="ace_cjk" style="width:16.862501220703123px">最</span><span class="ace_cjk" style="width:16.862501220703123px">后</span><span class="ace_cjk" style="width:16.862501220703123px">交</span><span class="ace_cjk" style="width:16.862501220703123px">易</span><span class="ace_cjk" style="width:16.862501220703123px">日</span><span class="ace_cjk" style="width:16.862501220703123px">计</span><span class="ace_cjk" style="width:16.862501220703123px">算</span></span></div><div class="ace_line" style="height:19.259260177612305px">    <span class="ace_support ace_function">run_monthly</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">trade</span>,<span class="ace_identifier">monthday</span><span class="ace_keyword ace_operator">=</span><span class="ace_constant ace_numeric">20</span>, <span class="ace_support ace_function">time</span><span class="ace_keyword ace_operator">=</span><span class="ace_string">'open'</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:19.259260177612305px">    </div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 4px; top: 0px; width: 8.43125px; height: 19.2593px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="width: 24px; bottom: 19px;"><div class="ace_scrollbar-inner" style="width: 24px; height: 3428.15px;"></div></div><div class="ace_scrollbar ace_scrollbar-h" style="height: 24px; left: 50px; right: 19px;"><div class="ace_scrollbar-inner" style="height: 24px; width: 792px;"></div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></div>
+                              </div>
+
+                              <!--
+                              <div id="splitter-bar" class="splitter-bar splitter-bar-vertical ui-state-default" unselectable="on" style="-moz-user-select: none; z-index: 100; position:absolute;right:0px; height: 100%;width:5px"><a href="javascript:void(0)" accesskey="" tabindex="0"></a>
+                              </div>
+                              -->
+                              <div id="mdpush">
+                                  <img src="/static/imags/mdpush.png">
+                              </div>
+                          <div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000; display: none;"></div></div>
+                          <div id="output-pane" style="height:100%; position:absolute;left:46%;width:calc(54% - 10px);margin-left: 10px;" class="splitter-pane">
+
+                              <div id="mdpush">
+                                  <img src="/static/imags/mdpush.png">
+                              </div>
+
+                              <div class="dailybars-output height_100pct">
+                                  <div id="dailybars-status" class="hidden">
+
+                                      <span class="loading-text"></span>
+                                      <div class="progress-pane">
+                                          <div class="progress progress-striped active">
+                                              <div style="width: 0%" id="dailybars-progressbar" class="bar"></div>
+                                          </div>
+                                          <span id="dailybars-progresslabel" class="progress-label"></span>
+                                          <div id="cancel-daily-backtest-button" class="btn cancel-button">取消编译</div>
+                                      </div>
+                                  </div>
+                                  <div class="dailybars-nav" id="dailybars-nav">
+                                      <div id="setting-btn-group" class="btn-group inline-block dailybars-controls form-inline" data-step="2" data-intro="设置回测的开始时间、结束时间、初始资金、回测频率" data-position="bottom">
+                                          <div class="control-group">
+                                              <div class="mo-control-group inline-block ">
+                                                  <div class="controls inline-block no_wrap">
+                                                      <input value="2005-06-01 00:00:00" id="startTime" name="backtest[startTime]" data-default="2015-01-05" data-datetype="backtest_start_date" class="datepicker hasDatepicker" readonly="readonly">
+                                                  </div>
+                                                  <label class="inline-block  to-label no_wrap"> 至 </label>
+                                                  <div class="controls inline-block no_wrap">
+                                                      <input value="2019-07-05 23:59:59" id="endTime" name="backtest[endTime]" data-default="2015-05-31" data-datetype="backtest_end_date" class="datepicker hasDatepicker" readonly="readonly">
+                                                  </div>
+                                                  <div class="controls inline-block padding_5l capitalbase-container no_wrap" style="padding-right:5px">
+                                                      <div class="input-prepend">
+                                                          <span class="add-on" style="padding:0px;margin:0px">￥</span>
+                                                          <input type="text" name="backtest[baseCapital]" value="100000000" step="1000" min="1000" id="daily_backtest_capital_base_box" class="capitalbase">
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="controls inline-block valign-top no_wrap">
+                                                  <input type="hidden" id="frequency" name="backtest[frequency]" value="day">
+                                                  <div class="btn-group bootstrap-select frequency-selector-ide show-tick" style="width: 70px;background:#fff;">
+                                                      <button data-toggle="dropdown" class="btn dropdown-toggle selectpicker btn-default" style="background: #fff;height:32px;border: 1px solid #d9dcdf;box-shadow;none;" type="button" title="Daily">
+                                                          <span class="filter-option pull-left">每天</span>&nbsp;<span class="caret"></span>
+                                                      </button>
+                                                      <div class="dropdown-menu open">
+                                                          <ul role="menu" class="dropdown-menu inner selectpicker">
+                                                              <li rel="day" class="selected">
+                                                              <a style="" class="" tabindex="0"><i class="icon icon-ok icon-ok check-mark"></i><span class="text">每天</span>
+                                                              </a>
+                                                              </li>
+                                                              <li rel="minute">
+                                                              <a style="" class="" tabindex="0"><i class="icon icon-ok icon-ok check-mark"></i><span class="text">分钟</span>
+                                                              </a>
+                                                              </li>
+                                                              <li rel="tick">
+                                                                <a tabindex="0">
+                                                                  <i class="icon icon-ok icon-ok check-mark"></i><span class="text">tick</span>
+                                                                </a>
+                                                              </li>
+                                                          </ul>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                                                                            <div class="controls inline-block valign-top no_wrap" id="edit-pyVersion">
+                                                  <select class="pyVersion">
+                                                    <option value="3" selected="">Python3</option>
+                                                    <option value="2">Python2</option>
+                                                  </select>
+                                                  <input type="hidden" class="pyVersionInput" name="backtest[pyVersion]" value="3">
+                                              </div>
+                                                                                        </div>
+                                      </div>
+                                      <a id="full-backtest-button">
+                                          <div id="daily-new-backtest-button" href="#join-modal" data-toggle="modal" class=" btn-primary pull-right" data-step="4" data-intro="点击“运行回测”进行完整的回测" data-position="left">
+                                              &nbsp;运行回测
+                                              <i class="icon chevron-right padding_5l"></i>
+                                          </div>
+                                      </a>
+                                  </div>
+                                  <div class="dailybars-results" style="height:365px" id="dailybars-results">
+                                      <div id="dailybar-stats">
+                                          <div class="dailybar-stat blue">
+                                              <div class="title">策略收益</div>
+                                              <div id="total_returns" class="value">--</div>
+                                          </div>
+                                          <div class="dailybar-stat red">
+                                              <div class="title">基准收益</div>
+                                              <div id="benchmark_returns" class="value">--</div>
+                                          </div>
+                                          <div class="dailybar-stat">
+                                              <div class="title">Alpha</div>
+                                              <div id="alpha" class="value">--</div>
+                                          </div>
+                                          <div class="dailybar-stat">
+                                              <div class="title">Beta</div>
+                                              <div id="beta" class="value">--</div>
+                                          </div>
+                                          <div class="dailybar-stat">
+                                              <div class="title">Sharpe</div>
+                                              <div id="sharpe" class="value">--</div>
+                                          </div>
+                                          <div class="dailybar-stat">
+                                              <div class="title">
+                                                  最大回撤
+                                                  <i class="icon icon-question-sign risk-icon  popover-right" data-toggle="popover" data-original-title="" title=""></i>
+                                              </div>
+                                              <div id="max_drawdown" class="value">--</div>
+                                          </div>
+                                      </div>
+                                      <div id="dailybar-chart-outer-container">
+                                          <div id="dailybar-watermark">
+                                              <span>点击”编译运行"进行快速回测(Ctrl-Alt-B)</span>
+                                              <span>或者 点击"运行回测"进行详细的回测</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="tabbable" style="height: 153px;" id="tabbable">
+                                      <div class="maxmin-button">
+                                        <span id="daily-toggle-logs-button" class="show_more"> </span>
+                                      </div>
+                                      <ul class="nav nav-tabs" id="nav-tabs">
+                                          <li class="active">
+                                              <a id="daily-logs-link" href="https://www.joinquant.com/algorithm/index/edit?algorithmId=58eefc01760e950245af6ef07008c24a&amp;backtest=0#daily-logs-tab" data-toggle="tab">日志</a>
+                                          </li>
+                                          <li>
+                                              <a id="daily-error-tab-link" href="https://www.joinquant.com/algorithm/index/edit?algorithmId=58eefc01760e950245af6ef07008c24a&amp;backtest=0#daily-errors-tab" data-toggle="tab">错误<i class="icon icon-circle tiny-icon hidden" style="color:red;vertical-align:super;"></i></a>
+                                          </li>
+                                      </ul>
+                                      <div class="tab-content no-padding" id="tab-content" style="height: 114.991px;">
+                                          <div id="daily-logs-tab" class="tab-pane active">
+                                              <div id="daily-logs-container" class="logs-output">
+                                                  <div class="logs-container position-relative" id="log"><pre></pre></div>
+                                                  <div class="logs-footer hidden" id="logs-init">
+                                                      <!-- <div class="loading-image border"></div>   -->
+                                                      <span class="message">正在加载日志...</span>
+                                                  </div>
+                                                  <div class="logs-finished hidden">
+                                                      结束.
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div id="daily-errors-tab" class="tab-pane">
+                                              <div id="dailybars-errors" class="error-info">
+                                                  <div class="error-container">
+                                                      <div class="error-details" id="error-log"><pre></pre></div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="modal fade">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                              <h4 class="modal-title">Modal title</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                              <p>One fine body…</p>
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                          </div>
+                                      </div><!-- /.modal-content -->
+                                  </div><!-- /.modal-dialog -->
+                              </div><!-- /.modal -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">快捷键（按 Esc 退出）</h4>
+          </div>
+          <div class="modal-body">
+              <ul class="pl_30">
+                  <li>
+                      <div class="inline-block modal_left"> <code>F2</code></div>
+                      <div class="inline-block modal_right">：折叠当前</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-0</code> </div>
+                      <div class="inline-block modal_right">：折叠所有</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Shift-0</code> </div>
+                      <div class="inline-block modal_right">：展开所有</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-/</code> </div>
+                      <div class="inline-block modal_right">：注释</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-[</code> </div>
+                      <div class="inline-block modal_right">：块反缩进</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-]</code> </div>
+                      <div class="inline-block modal_right">：块缩进</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-A</code></div>
+                      <div class="inline-block modal_right">：选择全部</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-L</code> </div>
+                      <div class="inline-block modal_right">：跳转到</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-F</code></div>
+                      <div class="inline-block modal_right">：查找</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-Alt-K</code> </div>
+                      <div class="inline-block modal_right">：查找全部</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-K</code> </div>
+                      <div class="inline-block modal_right">：选择并查找下一个</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Shift-K</code> </div>
+                      <div class="inline-block modal_right">：选择并查找上一个</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-D</code> </div>
+                      <div class="inline-block modal_right">：删除当前行</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code> Ctrl-Shift-D</code></div>
+                      <div class="inline-block modal_right">：复制并粘贴当前行</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-H</code></div>
+                      <div class="inline-block modal_right">：替换</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Up</code> </div>
+                      <div class="inline-block modal_right">：上移行</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Down</code> </div>
+                      <div class="inline-block modal_right">：下移行</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-Shift-Left</code> </div>
+                      <div class="inline-block modal_right">：选择左侧单词</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-Shift-Right</code> </div>
+                      <div class="inline-block modal_right">：选择右侧单词</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Shift-Left</code></div>
+                      <div class="inline-block modal_right">：选择到行起始</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Shift-Right</code></div>
+                      <div class="inline-block modal_right">：选择到行结束</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-Home</code></div>
+                      <div class="inline-block modal_right">：跳转到开始</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-End</code></div>
+                      <div class="inline-block modal_right">：跳转到结尾</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-Left</code> </div>
+                      <div class="inline-block modal_right">：跳到单词左侧</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Ctrl-Right</code> </div>
+                      <div class="inline-block modal_right">：跳到单词右侧</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Left|Home</code> </div>
+                      <div class="inline-block modal_right">：跳转到行起始</div>
+                  </li>
+                  <li>
+                      <div class="inline-block modal_left"> <code>Alt-Right|End</code></div>
+                      <div class="inline-block modal_right">：跳转到行结束</div>
+                  </li>
+
+              </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+            </div>
+            <input type="hidden" id="imagePath" value="https://image.joinquant.com">
+            <input type="hidden" id="cdnPath" value="https://cdn.joinquant.com">
+            <!--/body-->
+            
+
+
+        </div>
+                  <!-- 回到顶部 联系我们 -->
+<div id="leftsead" class="" draggable="true">
+  <ul><li class="qiyukf__entry backtotop-popover hidden"><div class="popover-content" style="width: 85px;margin-left: -95px;margin-top: 5px;">在线客服</div></li><li class="backtotop__progress hidden"><span class="backtotop__progress-count hidden"></span><div class="backtotop__record-container hidden"></div></li><li class="newUser backtotop__newUser hidden backtotop__scroll"><a href="https://www.joinquant.com/post/24debe6786302edc2febfc09b1312a6c" target="_blank"></a></li><li class="toTop backtotop__toTop hidden backtotop__scroll" id="top_btn"></li></ul>
+  <input type="text" class="timeStamp" value="1619319943615" style="display:none">
+  <input type="text" class="js-cdn-path" value="https://cdn.joinquant.com" style="display:none">
+</div>
+        
+
+        <script>
+        var g_staticHost = 'https://cdn.joinquant.com';
+
+                var g_isMobile = false;
+        
+                var g_isLogin = true;
+        
+                var g_isWinApp= false;
+        
+        </script>
+        <script>
+          window.tokenData = {
+            name: "token",
+            value: "928d6d2f8ecf002f8edc0782b87984b61e309dd264d1e36a3cdace5375f3d7a5809e0a50c260d222"
+          }
+        </script>
+
+        
+	               <script src="/static/js/mustache.min.js.下载"></script>
+        <script src="/static/js/lib.min.js.下载"></script>
+        <script src="/static/js/setGroIO.js.下载"></script>
+                
+        <script src="/static/js/common.js.下载"></script>
+        <script src="/static/js/util.js.下载"></script>
+        <script src="/static/js/component.js.下载"></script>
+        <script src="/static/js/common.header.module.bundle.js.下载"></script>
+        <script src="/static/js/index.module.bundle.js.下载"></script>
+        <script src="/static/js/include.module.bundle.js.下载"></script>
+        <script src="/static/js/baidu-tongji.bundle.js.下载"></script>
+                  <script src="/static/index.module.bundle.js(1).下载"></script>
+                
+	    
+        
+        
+        <script>
+            // 显示隐藏nav选项
+            $('.dropdown_menu').click(function(){
+                return false;
+            })
+            $('.dropdown_menu').hover(function(){
+                var href = $(this).attr('href');
+                $('.nav-dropdown-item').addClass('hidden');
+                $(href).removeClass('hidden');
+            },function(){});
+
+            $('ul.nav').find('li').find('a').hover(function(){
+                if ($(this).hasClass('dropdown_menu')) {
+                    return;
+                }
+               $('.nav-dropdown-item').addClass('hidden');
+            })
+            $('#kk_nav').mouseleave(function(){
+                $('.nav-dropdown-item').addClass('hidden');
+            })
+        </script>
+
+        <script>
+        $('.dropdown-toggle').dropdown();
+        $("body").delegate("a","click",function(){
+            if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
+                window.open($(this)[0].href);
+                return false;
+            }
+        });
+
+	</script>
+            <script charset="UTF-8" type="text/javascript" src="/static/js/stockcode.js.下载"></script>
+    <script charset="UTF-8" type="text/javascript" src="/static/js/jquery-ui-jq.min.js.下载"></script>
+    <script charset="UTF-8" type="text/javascript" src="/static/js/ace.min.js.下载"></script>
+    
+      <script charset="UTF-8" type="text/javascript" src="/static/js/edit.min.js.下载"></script><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+  
+<script charset="UTF-8" src="/static/js/base64.js.下载"></script>
+<script charset="UTF-8">
+    var visited = 0;
+    showIntro(visited);
+    g_isBackToTop=false;
+    var isWinApp = $("body").hasClass("in_win_app");
+
+    if(isWinApp){
+        $("body").on("click",".popover a",function(){
+
+            if (parent.send) {
+                parent.send("addTab",{url:this.href});
+                return false;
+            };
+
+
+            if (parent.loadIframe) {
+                var type = 'data';
+                var href;
+                var splitText = '?';
+                event.preventDefault();
+
+                if ($(this).attr('href').indexOf('?') !== -1) {
+                    splitText = '&';
+                };
+                href = [location.origin, $(this).attr('href'), splitText, 'device=winapp'].join('');
+                parent.loadIframe({
+                    url: href,
+                    type: type
+                });
+                return false;
+            }
+        });
+        $("#prefs-menu-trigger").off('click');
+        $("#daily-logs-link").off('click');
+        $("#daily-error-tab-link").off('click');
+    };
+</script>
+
+	            <div style="display:none">
+	    <script src="/static/plugin/z_stat.php" language="JavaScript"></script><script src="/static/plugin/core.php" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=1256107754" target="_blank" title="站长统计">站长统计</a>
+        <!-- 返回顶部 -->
+
+        <script>
+             var img = new Image();
+             var referer = "https%3A%2F%2Fwww.joinquant.com%2Falgorithm%2Findex%2Flist";
+             var euid = "ac639971280981e3b279c0a1e331f473";
+             var urd = "2019_07_02";
+             var logHost = '';
+             var timestamp=new Date().getTime();
+             img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;
+        </script>
+        <script>
+          /*cnzz点击事件统计*/
+          $('.track_event_click').click(function(){
+              var cate = $(this).attr('_cate');
+              var name = $(this).attr('_name');
+               _czc.push(['_trackEvent', cate, '点击', name]);
+          });
+
+          $('.js-tag-hot').on('click', function() {
+            window.setCookie('isActiveHot', 1, 365 * 10 * 24 * 60);
+          });
+
+          if ($.cookie('isActiveHot') === '1') {
+            $('.js-tag-hot div').hide();
+          };
+        </script>
+        <!-- 网易七鱼客户系统 -->
+        <script>
+            (function (w, d, n, a, j) {
+                w[n] = w[n] || function () {
+                    (w[n].a = w[n].a || []).push(arguments);
+                };
+                j = d.createElement('script');
+                j.async = true;
+                j.src = 'https://qiyukf.com/script/d65beefd7552d92ee02344b3cc6173de.js';
+                d.body.appendChild(j);
+            })(window, document, 'ysf');
+        </script>
+        </div><input type="hidden" id="valid-code__token"><script async="" src="/static/js/d65beefd7552d92ee02344b3cc6173de.js.下载"></script>
+    
+
+<div style="top: 0px; left: 0px; visibility: hidden; position: absolute; width: 1px; height: 1px;"><iframe style="height:0px; width:0px;" src="/static/plugin/delegate.html"></iframe></div><div class="layer-1" id="YSF-BTN-HOLDER" style="display: none;"><div id="YSF-CUSTOM-ENTRY-1"><img src="/static/imags/sdk_res_kefu_custom_1.png"></div><span id="YSF-BTN-CIRCLE"></span><div id="YSF-BTN-BUBBLE"><div id="YSF-BTN-CONTENT"></div><span id="YSF-BTN-ARROW"></span><span id="YSF-BTN-CLOSE"></span></div></div></body></html>
